@@ -1,0 +1,235 @@
+// --------------------------------------------------------------------------
+// Header -------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
+
+
+.top-banner {
+    padding: 20px 0 20px 0;
+}
+
+.netmatters {                    
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+//--------------------------------------------------------------------------------------------------
+//small mquery (not using function as the website specifies this between ranges not used in function)
+//--------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: ($brkpoint-lg - 1)) {
+    .top-banner {
+        @include flex-col;
+        &__row {
+            &--item:not(:first-child) {
+                flex-shrink: 0;
+            }
+            .phone {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            &--item:last-child {
+                margin-left: 10px;
+                margin-right: 0;
+            }
+            &:first-child {
+                @include flex-row;
+                justify-content: space-between;
+            }
+
+        }
+    }
+    .phone {
+        &__image {
+            height: 25px;
+            width: 25px;
+            margin-top: 20px;
+            &:hover {
+                border-bottom: 1px solid $color-primary;
+                height: 26px;
+            }
+        }
+    }
+    .search-wrapper {
+        width: 100%;
+        @include flex-row;
+        margin-top: 6px;
+        &__item {
+            height: 47px;
+            background-color: $grey;
+            border: 2px solid darken($grey, 10%);
+            &:first-child {  
+                padding: 5px 40px 5px 15px;
+                margin: 0;
+                border-right: none;
+                color: $dark-grey;
+                flex-grow: 1;
+                min-width: 0;
+            }
+            &:last-child {
+                border-left: none;
+                flex-shrink: 0;
+            }
+        }
+    }
+    .inset-search-icon {
+        position: relative;
+        width: 45px;
+        &--image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 20px;
+            width: 20px;
+
+        }
+    }
+}
+
+//----------------------
+//second stage of mquery
+//----------------------
+
+@media screen and (min-width: $brkpoint-lg) and (max-width: ($brkpoint-xlg - 1)) {
+    .top-banner__row {
+        &--item:first-child {
+            width: 345px;
+        }
+    }
+}
+
+@include mq(large) {
+    .top-banner__row {
+        @include flex-row;
+    } 
+    .search {
+        height: 56px;
+        width: 174px;
+        margin-right: 0px;
+        border: 1px solid #ccc;
+        border-radius: 2px 0 0 2px;
+        padding-left: 15px;
+        @include blue-focus;
+        &__icon {
+            color: $white;
+            background-color: $dark-grey;
+            border: none;
+            height: 56px;
+            width: 63px;
+            font-size: $base__line;
+            padding: 16px 19.5px 16px;
+            margin-left: 0;
+            &:hover {
+                background-color: darken($dark-grey, 12%);
+            }
+        }
+    }
+    .top-search {
+        margin-top:6px;
+        @include flex-row;
+        margin-right: 25px;
+    }
+}
+
+//---------------------------------------
+//search icon border radii
+//---------------------------------------
+
+@media screen and (max-width: ($brkpoint-xlg - 1)) {
+    .search__icon {
+        border-radius: 0 3px 3px 0;
+    }
+}
+@media screen and (min-width: $brkpoint-xlg) and (max-width: ($brkpoint-xxlg - 1)) {
+    .search__icon {
+        border-radius: 3px;
+    }
+}
+@media screen and (min-width: $brkpoint-xxlg) {
+    .search__icon {
+        border-radius: 0 3px 3px 0;
+    }
+}
+
+//---------------------------------------
+//largest breakpoint
+//---------------------------------------
+
+
+@include mq(xx-large) {
+    .top-search__child:first-child {
+        width: 240px;
+    }
+
+}
+
+//---------------------------------------
+//for elements unneffected by screen size
+//---------------------------------------
+
+.box {
+    border-radius: 3px;
+    position: relative;
+    height: 56px;
+    margin-top:6px;
+    margin-bottom: 15px;
+}
+
+.hamburger {
+    background-color: $color-primary;
+    width: 63px;
+    &-box {
+        @extend %img-center;
+    }
+}
+
+span.hamburger-inner, span.hamburger-inner::before, span.hamburger-inner::after, span.hamburger-inner.is-active {
+    background-color: $white;
+}
+
+.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner:after, .hamburger.is-active .hamburger-inner:before {
+    background-color: $white;
+}
+
+.mouse {
+    background-color: $magical-merlin;
+    width: 141px;
+    margin-right: 20px;
+    &:hover {
+        background-color: darken($magical-merlin, 10%);
+    }
+}
+.send {
+    background-color: $dark-grey;
+    width: 141px;
+    margin-right: 20px;
+    &:hover {
+        background-color: darken($dark-grey, 10%);
+    }
+}
+
+.mouse, .send {
+    @include flex-row;
+    justify-content: center;
+    text-transform: uppercase;
+    color: $white;
+    font-size: 18px;
+    &__image {
+        height: 25px;
+    }
+    &__child {
+        margin-top: auto;
+        margin-bottom: auto;
+        &:first-child {
+            margin-right: 5px;
+        }
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,138 @@
+
+// --------------------------------------------------------------------------
+// our-services -------------------------------------------------------------
+// --------------------------------------------------------------------------
+
+.our-services {
+    padding: 50px 0;
+
+    &__content {
+        display: grid;
+        grid-gap: 30px;
+        grid-template-rows: auto;
+        margin-top: 30px;
+        &--item {
+            color: $color-primary;
+            @include flex-col;
+            background-color: $white;
+            padding: 30px;
+            // margin: 30px 0 0; 
+            text-align: center;
+            border: 1px solid #ccc;
+            box-shadow: 0 3px 35px rgba(0,0,0,10%);
+            border-radius: 15px;
+            @extend %animate;
+            p {
+                font-size: $font-size--small;
+                margin: 0 0 25px;
+            }
+            h3 {
+                margin: 0 0 21px;
+            }
+            .button {
+                padding: 11px 15px;
+                color: $white;
+                @include auto-mg;
+                margin-top: auto;
+            }
+            //formatting the circular icon 
+            &--child:first-child {
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+                @include auto-mg;
+                @include flex-col;
+                justify-content: center;
+                margin-bottom: 17px;
+            }
+        }
+    }
+}
+
+//media queries
+
+@include mq(large) {
+    .our-services__content {
+        grid-template-columns: repeat(12, 1fr);
+        &--item:nth-child(-n + 3) {
+            grid-column-start: 1;
+            grid-column-end: 13;
+        }
+        &--item:nth-child(2n + 4) {
+            grid-column-start: 1;
+            grid-column-end: 7;
+        }
+        &--item:nth-child(2n + 5) {
+            grid-column-start: 7;
+            grid-column-end: 13;
+        }
+    }
+}
+
+@include mq(x-large) {
+    .our-services__content {
+        &--item:nth-child(1) {
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+        &--item:nth-child(2) {
+            grid-column-start: 5;
+            grid-column-end: 9;
+        }
+        &--item:nth-child(3) {
+            grid-column-start: 9;
+            grid-column-end: 13;
+        }
+    }
+}
+
+@include mq(xx-large) {
+    .our-services__content {
+        grid-template-columns: repeat(12, 1fr);
+        &--item:nth-child(4) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        &--item:nth-child(5) {
+            grid-column-start: 4;
+            grid-column-end: 7;
+        }
+        &--item:nth-child(6) {
+            grid-column-start: 7;
+            grid-column-end: 10;
+        }
+        &--item:nth-child(7) {
+            grid-column-start: 10;
+            grid-column-end: 13;
+        }
+    }
+}
+
+//asigning theme colours for normal and hover states; same loop as nav but with adjustments (i.e. .theme-state2)
+@each $theme, $icon in $theme-icons {
+    .#{$theme}-s2 {
+        &__element {
+            background-color: map-get($theme-colors, $theme);
+            color:$white;
+            &--icon {
+                font-size: 24px;
+            }
+            &--icon::before {
+                content: $icon;
+            }
+        }
+        &:hover {
+            background-color: map-get($theme-colors, $theme);
+            .#{$theme}-s2__element {
+                color: map-get($theme-colors, $theme);
+                background-color: white;
+            }
+            .our-services__content--item--child {
+                h3, p {
+                   color: $white; 
+                }
+            }
+        }
+    }
+}
+

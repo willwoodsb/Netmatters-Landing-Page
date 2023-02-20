@@ -1,0 +1,32 @@
+$theme-img: (
+    software: "../img/home-YLei.webp",
+    it-support: "../img/home-gay8.png",
+    dig-marketing: "../img/home-6yTp.webp",
+    tel-services: "../img/home-J8Xx.webp",
+    web-design: "../img/home-K0pn.webp",
+    cyber-security: "../img/home-MSxH.webp",
+    bespoke: "../img/home-O67Y.webp"
+);
+
+.grey {
+    background-color: lighten($grey, 80%);
+}
+.dark-grey {
+    background-color: $grey;
+}
+.bck-img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-size: cover;
+}
+
+@each $theme, $img in $theme-img {
+    ##{$theme}-slider {
+        background-image: url(#{$img}), linear-gradient(-270deg, darken($dark-grey, 40%) , $white);
+    }
+}
+
+.primary {
+    background-color: $color-primary;
+}

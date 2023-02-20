@@ -1,0 +1,120 @@
+// --------------------------------------------------------------------------
+// hamburger menu -----------------------------------------------------------
+// --------------------------------------------------------------------------
+
+header {
+    z-index: 10000;
+}
+
+#hamburger-menu {
+    position: fixed;
+    right: -290px;
+    width: 290px;
+    @include mq(x-large) {
+        right: -333px;
+        width: 333px;
+    }
+    height: 100vh;
+    background-color: $color-primary;
+    transition: width .5s ease;
+    text-align: center;
+    color: $white;
+    .side-nav {
+        padding: 21px;
+        @include mq(x-large) {
+            display: none;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: $white;
+
+    }
+    .header-box {
+        margin-bottom: 20px;
+        padding: 19px 0;
+        border-radius: 3px;
+        border: 1px solid hsla(0,0%,100%,.1);
+        outline: 1px solid rgba(0,0,0,0.25);
+        &:hover {
+            background-color: lighten($color-primary, 3%);
+        }
+    }
+    ul {
+        background-color: black;
+        border-radius: 3px;
+        li {
+            margin-top: 1px;
+            text-transform: uppercase;
+            background-color: darken($color-primary, 5%);
+            border-top: 1px solid hsla(0,0%,100%,.05);
+            
+        }
+    }
+
+    .side-nav {
+        h4 {
+            font-size: 18px;
+        }
+        ul {
+            margin-bottom: 20px;
+        }
+        ul li {
+            font-size: 16px;
+            padding: 10px;
+            &:first-child {
+                border-radius: 3px 3px 0 0;
+            }
+            &:last-child {
+                border-radius: 0 0 3px 3px;
+            }
+        }
+    }
+    .side-content {
+        text-align: left;
+        ul {
+            & li:first-child {
+                font-size: 16px;
+                padding: 20px;
+                background-color: $color-primary;
+                &:hover {
+                    background-color: lighten($color-primary, 3%);
+                }
+            }
+            & li:not(:first-child) {
+                font-size: 14px;
+                padding: 15px 20px;
+                &:before {
+                    content: "»   ";
+                }
+            }
+            &:first-child {
+                display: none;
+                @include mq(x-large) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+}
+
+#grey-out {
+    right: 0;
+    width: 200vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 100;
+    display: none;
+}
+
+
+
+.slide-left {
+    transform: translate(-290px, 0); 
+    @include mq(x-large) {
+        transform: translate(-333px, 0); 
+    }
+}
+
+//»

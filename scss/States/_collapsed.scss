@@ -1,0 +1,37 @@
+// --------------------------------------------------------------------------
+// collapsing segments depending on screen ----------------------------------
+// --------------------------------------------------------------------------
+
+
+.is-collapsed-small-screen {
+    @media screen and (max-width: ($brkpoint-lg - 1)) {
+      @include collapse;
+    }
+}
+
+.is-collapsed-large-screen {
+    @media screen and (min-width: $brkpoint-lg) {
+      @include collapse;
+    }
+}
+
+.is-visible-large-screen {
+  @media screen and (max-width: $brkpoint-lg) {
+    @include collapse;
+  }
+}
+
+.is-collapsed-x-large-screen {
+  @media screen and (min-width: $brkpoint-xlg) and (max-width: $brkpoint-xxlg) {
+    @include collapse;
+  }
+}
+
+.is-visible-x-large-screen {
+  @media screen and (max-width: $brkpoint-xlg) {
+    @include collapse;
+  }
+}
+
+
+

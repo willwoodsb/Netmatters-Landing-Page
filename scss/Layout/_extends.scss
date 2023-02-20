@@ -1,0 +1,37 @@
+
+// --------------------------------------------------------------------------
+// extends ------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
+//reused flex properties
+%flex {
+    display: flex;
+    margin: 0 0 30px;
+    justify-content: center;
+    @include mq(small) {
+        @include auto-mg;
+    }
+}
+
+//animate grid items when hovering
+%animate {
+    transition: .5s ease;
+    &:hover {
+        transform: translate(0, -10px);
+    }
+}
+
+//blue outline around boxes when focused
+@mixin blue-focus {
+    &:focus {
+        outline: $tufts-blue;
+        box-shadow: 0 0 10px $tufts-blue;
+    }
+}
+
+
+
+
+
+
+

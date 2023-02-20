@@ -1,0 +1,114 @@
+// --------------------------------------------------------------------------
+// section with sliding images ----------------------------------------------
+// --------------------------------------------------------------------------
+//bottom slider links
+.owl-dots {
+    @include flex-row;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.owl-dot {
+    position: relative;
+    height: 23px;
+    width: 23px;
+    &:hover {
+        span {
+            background-color: #99aaa2;
+        }
+    }
+    span {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        @extend %img-center;
+        background-color: rgba(255,255,255,0.4);
+    }
+    margin: 0 5px;
+}
+
+.owl-carousel button.owl-dot.active {
+    border: 2px solid $white;
+    border-radius: 50%;
+    span {
+        background-color: $white;
+    }
+}
+
+
+
+//main styling rules
+.header-text-image {
+    a {
+        color: $white;
+    }
+    position: relative;
+    @media screen and (max-width: 430px) {
+        height: 650px;
+        transition: ease .4s;
+    }
+    @media screen and (min-width: 431px) { 
+        height: 550px;
+        transition: ease .4s;
+    }
+    color: $white;
+    @include flex-col;
+    justify-content: center;
+    text-align: center;
+    h2 {
+        margin: 0 0 20px;
+        line-height: (0.75*($base__line/$base__font-size));
+        font-weight: 500;
+    }
+    p {
+        margin: 0 0 6px;
+        line-height: (0.85*($base__line/$base__font-size));
+    }
+    .button {
+        font-size: 20px;
+        padding: 15px 20px;
+        margin: 31px 0 32px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    span {
+        &:after {
+            content: "\ea3c"; //arrow in button
+        }
+        margin-left: 9px;
+    }
+
+    
+}
+@each $theme, $color in $theme-colors {
+    ##{$theme}-slider {
+        .button {
+            background-color: $color;
+            &:hover {
+                background-color: darken($color, 10%);
+            }
+        }
+    }
+}
+
+
+//move to left media query
+@include mq(x-large) {
+    .header-text-image {
+        text-align: start; 
+        &__item {
+            max-width: 1000px;
+        }
+        .button {
+            margin-left: 0;
+        }
+        h2 {
+            font-size: 64px;
+        }
+        p {
+            font-size: 26px;
+        }
+    }
+}
