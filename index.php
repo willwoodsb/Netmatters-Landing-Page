@@ -1,4 +1,7 @@
-<?php include('inc/header.php'); ?> 
+<?php 
+$title = "Full Service Digital Agency";
+include('inc/header.php'); 
+?> 
       
 <!-- Main Website body -->
 <main>

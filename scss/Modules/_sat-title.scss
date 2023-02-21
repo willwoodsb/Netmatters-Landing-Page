@@ -1,0 +1,49 @@
+.sat-title {
+    &__wrapper1 {
+        border-top: 1px solid $color-primary;
+        background-color: $white;
+        @include mq(x-large) {
+            box-shadow: 0 4px 10px -10px $dark-grey;
+        }
+    }
+    &__wrapper2 {
+        background-color: $color-primary;
+        @include mq(x-large) {
+            background-color: lighten($grey, 80%);
+        }
+    }
+    &__links {
+        @include flex-row;
+        padding: 14px 0;
+        p, a {
+            color: $color-primary;
+        }
+        a {
+            font-weight: $font-weight--bold;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &-wrapper {
+            border-top: 1px solid $color-primary;
+            background-color: $white;
+        }
+        p {
+            font-size: 13px;
+        }
+        & .slash {
+            margin: 0 5px;
+        }
+    }
+    &__block {
+        color: $white;
+        padding: 24px 0;
+        h1 {
+            font-weight: $font-weight--light;
+        }
+        @include mq(x-large) {
+            color: $color-primary;
+            padding: 50px 0 0;
+        }
+    }
+}

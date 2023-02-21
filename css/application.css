@@ -1161,14 +1161,6 @@ hr.line {
         margin-bottom: 0; }
       .latest-news__item .padding:nth-child(5) {
         margin-top: 20px; }
-    .latest-news__item:nth-child(1) h3, .latest-news__item:nth-child(2) h3 {
-      color: #67809F; }
-    .latest-news__item:nth-child(1) .button, .latest-news__item:nth-child(1) .absolute, .latest-news__item:nth-child(2) .button, .latest-news__item:nth-child(2) .absolute {
-      background-color: #67809F; }
-    .latest-news__item:nth-child(3) h3 {
-      color: #926fb1; }
-    .latest-news__item:nth-child(3) .button, .latest-news__item:nth-child(3) .absolute {
-      background-color: #926fb1; }
     .latest-news__item h3 {
       font-size: 1em;
       font-weight: 600; }
@@ -1234,7 +1226,7 @@ hr.line {
   .latest-news__item {
     height: 633px; } }
 @media screen and (min-width: 768px) and (max-width: 1260px) {
-  #green-team {
+  .latest-news__item:nth-child(3) {
     display: none;
     padding: 0;
     height: 0;
@@ -1242,6 +1234,46 @@ hr.line {
     line-height: 0;
     width: 0;
     transition: none; } }
+.latest-news__item.software-news h3 {
+  color: #67809F; }
+.latest-news__item.software-news .button, .latest-news__item.software-news .absolute {
+  background-color: #67809F; }
+
+.latest-news__item.it-support-news h3 {
+  color: #4183D7; }
+.latest-news__item.it-support-news .button, .latest-news__item.it-support-news .absolute {
+  background-color: #4183D7; }
+
+.latest-news__item.dig-marketing-news h3 {
+  color: #2ecc71; }
+.latest-news__item.dig-marketing-news .button, .latest-news__item.dig-marketing-news .absolute {
+  background-color: #2ecc71; }
+
+.latest-news__item.tel-services-news h3 {
+  color: #d64541; }
+.latest-news__item.tel-services-news .button, .latest-news__item.tel-services-news .absolute {
+  background-color: #d64541; }
+
+.latest-news__item.web-design-news h3 {
+  color: #926fb1; }
+.latest-news__item.web-design-news .button, .latest-news__item.web-design-news .absolute {
+  background-color: #926fb1; }
+
+.latest-news__item.cyber-security-news h3 {
+  color: #f62459; }
+.latest-news__item.cyber-security-news .button, .latest-news__item.cyber-security-news .absolute {
+  background-color: #f62459; }
+
+.latest-news__item.dev-course-news h3 {
+  color: #ce4125; }
+.latest-news__item.dev-course-news .button, .latest-news__item.dev-course-news .absolute {
+  background-color: #ce4125; }
+
+.latest-news__item.bespoke-news h3 {
+  color: #67809F; }
+.latest-news__item.bespoke-news .button, .latest-news__item.bespoke-news .absolute {
+  background-color: #67809F; }
+
 #form-title {
   color: #333645;
   font-size: 2em;
@@ -1586,6 +1618,92 @@ header {
   @media screen and (min-width: 992px) {
     .slide-left {
       transform: translate(-333px, 0); } }
+
+.sat-title__wrapper1 {
+  border-top: 1px solid #333645;
+  background-color: #FFF; }
+  @media screen and (min-width: 992px) {
+    .sat-title__wrapper1 {
+      box-shadow: 0 4px 10px -10px #999AA2; } }
+.sat-title__wrapper2 {
+  background-color: #333645; }
+  @media screen and (min-width: 992px) {
+    .sat-title__wrapper2 {
+      background-color: rgba(204, 204, 204, 0.1); } }
+.sat-title__links {
+  display: flex;
+  flex-direction: row;
+  padding: 14px 0; }
+  .sat-title__links p, .sat-title__links a {
+    color: #333645; }
+  .sat-title__links a {
+    font-weight: 700; }
+    .sat-title__links a:hover {
+      text-decoration: underline; }
+  .sat-title__links-wrapper {
+    border-top: 1px solid #333645;
+    background-color: #FFF; }
+  .sat-title__links p {
+    font-size: 13px; }
+  .sat-title__links .slash {
+    margin: 0 5px; }
+.sat-title__block {
+  color: #FFF;
+  padding: 24px 0; }
+  .sat-title__block h1 {
+    font-weight: 400; }
+  @media screen and (min-width: 992px) {
+    .sat-title__block {
+      color: #333645;
+      padding: 50px 0 0; } }
+
+.our-offices {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  padding-top: 75px; }
+  .our-offices .img-link {
+    display: inline-block;
+    background-color: #FFF; }
+  .our-offices__child--content {
+    outline: 1px solid #ccc;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden; }
+  .our-offices__child--address {
+    display: block;
+    background-color: #FFF;
+    padding: 30px; }
+    .our-offices__child--address a:first-child {
+      color: #333645; }
+    .our-offices__child--address ul, .our-offices__child--address li {
+      color: #666;
+      font-size: 13px; }
+      .our-offices__child--address ul:last-child, .our-offices__child--address li:last-child {
+        margin-bottom: 15px; }
+    .our-offices__child--address a:hover {
+      text-decoration: underline; }
+    .our-offices__child--address a.office-tel-num {
+      color: #926fb1;
+      font-size: 24px;
+      font-weight: 700; }
+    .our-offices__child--address .button {
+      margin-top: 15px;
+      color: #FFF;
+      background-color: #926fb1;
+      padding: 13px 35px;
+      font-size: 14px;
+      border: none; }
+      .our-offices__child--address .button:hover {
+        text-decoration: none;
+        background-color: #79539a; }
+  @media screen and (min-width: 992px) {
+    .our-offices {
+      grid-template-columns: 1fr 1fr; } }
+
+.map {
+  height: 250px;
+  overflow: hidden;
+  border-radius: 0 0 15px 15px; }
 
 @media screen and (max-width: 767px) {
   .is-collapsed-small-screen {

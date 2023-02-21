@@ -21,18 +21,6 @@ foreach($news_array as &$article) {
         $article["description"] .= "...";
     }
     $article["date"] = date("jS F Y", strtotime($article["date"]));
-
-    switch ($article["theme_color"]) {
-        case "rackley":
-            $article["theme_color"] = "rackley";
-            break;
-        case "tufts-blue":
-            $article["theme_color"] = "tufts-blue";
-            break;
-        case "rackley":
-            $article["theme_color"] = "#2ecc71";
-            break;
-    }
     
 }
 

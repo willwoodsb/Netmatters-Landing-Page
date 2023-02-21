@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Full Service Digital Agency | Cambridge & Norfolk | Netmatters</title>
+    <title><?php echo $title; ?> | Cambridge & Norfolk | Netmatters</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/cbfcb73618.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="plugins/hamburger/hamburgers.min.css">
     <link rel="stylesheet" href="css/application.css">
     <link rel="stylesheet" href="plugins/owl-carousel/owl.carousel.min.css">
+    <?php if (isset($maps)) { ?>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""/>
+    <?php } ?>
     <link rel="icon" href="img/net_icon.webp" type="image/x-icon">
     
   </head>
@@ -15,7 +20,7 @@
     <!-- hamburger menu -->
     <section id="hamburger-menu">
       <div class="side-nav">
-        <a href="#"><h4 class="header-box">Contact Us</h4></a>
+        <a href="contact-us.php"><h4 class="header-box">Contact Us</h4></a>
         <a href="#"><div class="header-box">
           <div class="main-nav__item--child icon software__icon"></div>
           <div class="main-nav__item--child">Bespoke</div>
@@ -182,9 +187,9 @@
           <section>
             <div class="width top-banner">
               <div class="top-banner__row">
-                <a class="netmatters top-banner__row--item" href="#home"><img src="img/logo.png" alt="netmatters logo"></a>
+                <a class="netmatters top-banner__row--item" href="index.php"><img src="img/logo.png" alt="netmatters logo"></a>
                 <a href="#" class=" box mouse top-banner__row--item is-visible-x-large-screen"><img class="mouse__child box__image mouse__image" src="img/mouse.png" alt="mouse icon"><div class="mouse__child">Support</div></a>
-                <a href="#" class=" box send top-banner__row--item is-visible-x-large-screen"><img class="send__child box__image send__image" src="img/send.png" alt="send icon"><div class="send__child">Contact</div></a>
+                <a href="contact-us.php" class=" box send top-banner__row--item is-visible-x-large-screen"><img class="send__child box__image send__image" src="img/send.png" alt="send icon"><div class="send__child">Contact</div></a>
                 <form method="post" class="is-collapsed-small-screen top-banner__row--item top-search">
                     <input type="text" placeholder="Search.." class="search top-search__child is-collapsed-x-large-screen">
                     <button class="top-search__child search__icon icon"><img class="" src="img/search-white.png" alt="search icon"></button>

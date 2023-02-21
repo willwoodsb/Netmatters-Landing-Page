@@ -99,6 +99,11 @@
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
       crossorigin="anonymous">
     </script>
+    <?php if (isset($maps)) { ?>
+      <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""></script>
+    <?php } ?>
     <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
     <script src="js/application.js"></script>
   </body>

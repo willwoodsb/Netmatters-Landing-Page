@@ -27,22 +27,6 @@
                 margin-top: 20px;
             }
         }
-        &:nth-child(1), &:nth-child(2) {
-            h3 {
-                color: $rackley;
-            }
-            .button, .absolute {
-                background-color: $rackley;
-            }
-        }
-        &:nth-child(3) {
-            h3 {
-                color: $purple-majesty;
-            }
-            .button, .absolute {
-                background-color: $purple-majesty;
-            }
-        }
         h3 {
             font-size: em(16px);
             font-weight: 600;
@@ -140,8 +124,19 @@
 }
 
 @media screen and (min-width: $brkpoint-lg) and (max-width: $brkpoint-xxlg) {
-    #green-team {
+    .latest-news__item:nth-child(3) {
         @include collapse;
         transition: none;
+    }
+}
+
+@each $theme, $color in $theme-colors {
+    .latest-news__item.#{$theme}-news {
+        h3 {
+            color: $color;
+        }
+        .button, .absolute {
+            background-color: $color;
+        }
     }
 }

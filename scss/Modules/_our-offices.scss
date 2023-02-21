@@ -1,0 +1,62 @@
+
+.our-offices {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    padding-top: 75px;
+    .img-link {
+        display: inline-block;
+        background-color: $white;
+    }
+
+    &__child {
+
+        &--content {
+            outline: 1px solid #ccc;
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+        }
+        &--address {
+            display: block;
+            background-color: $white;
+            padding: 30px;
+            a:first-child {
+                color: $color-primary;
+            }
+            ul, li {
+                color: $granite;
+                font-size: 13px;
+                &:last-child {
+                    margin-bottom: 15px;
+                }
+            }
+            a {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            a.office-tel-num {
+                color: $purple-majesty;  
+                font-size: 24px;
+                font-weight: $font-weight--bold;
+            }
+            .button {
+                margin-top: 15px;
+                color: $white;
+                background-color: $purple-majesty;
+                padding: 13px 35px;
+                font-size: 14px;
+                border: none;
+                &:hover {
+                    text-decoration: none;
+                    background-color: darken($purple-majesty, 10%);
+                }
+            }
+        }
+        
+    }
+    @include mq(x-large) {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
