@@ -1,3 +1,30 @@
+    
+    <!-- Email Form -->
+  <section class="dark-grey" id="email-form">
+    <div class="width">
+      <h2 id="form-title">Email Newletter Sign-Up</h2>
+      <form method="post" class="form">
+        <div class="form__item">
+          <label for="name">Your Name<span style="color: darkred;">*</span></label>
+          <input type="text" name="name" id="name">
+        </div>
+        <div class="form__item">
+          <label for="email">Your Email<span style="color: darkred;">*</span></label>
+          <input type="text" name="email" id="email">
+        </div>
+        <div class="form__item">               
+          <label class="consent-box">
+            <input type="checkbox" name="consent" id="consent">
+            <span class="checkmark"></span>
+          </label>  
+          <a href="#">Please tick this box if you wish to receive marketing information from us. Please see our <span>Privacy Policy</span> for more information on how we keep your data safe.</a>
+        </div>
+        <input type="submit" value="Subscribe" class="button">
+      </form>
+    </div>
+  </section>
+    
+    
     <!-- Footer -->
     <footer class="primary">
         <div class="width">

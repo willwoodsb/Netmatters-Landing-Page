@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------
-// email sign-up form -------------------------------------------------------
+// general form properties --------------------------------------------------
 // --------------------------------------------------------------------------
 #form-title {
 
@@ -8,20 +8,13 @@
     font-weight: 400;
 
 }
-#email-form {
-    padding: 50px 0;
-}
 
 .form {
     display: grid;
     grid-template-rows: auto;
     grid-gap: 25px;
-    padding: 10px 0 0 0;
     &__item:not(:last-child) {
         @include flex-col;
-    }
-    &__item:nth-child(3) {
-        @include flex-row;
     }
     label, a {
         font-size: em(16px);
@@ -47,7 +40,6 @@
     input[type=submit] {
         margin-right: auto;
         border: none;
-        background: $color-primary;
         color: $white;
         padding: 9px 15px;
         font-size: em(17px);
@@ -70,10 +62,6 @@
                 grid-column-start: 2;
                 grid-column-end: 3;
             } 
-            &:nth-child(3), &:nth-child(4) {
-                grid-column-start: 1;
-                grid-column-end: 3;
-            }
         }
         
     }

@@ -6,6 +6,7 @@ $maps = true;
 include('inc/header.php');
 include('inc/satellite-title-view.php');
 include('inc/locations.php');
+include('inc/contact-form.php');
 
 $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
 
@@ -50,7 +51,7 @@ $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
 </section>
 
 <!-- Contact Form -->
-<section class="grey">
+<section class="grey contact-form">
     <div class="width">
         <div id="support">
             <p>Email us on:</p>
@@ -65,13 +66,45 @@ $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
             </div>
         </div>
 
-        <form action="#" method="post">
-            <label for="name">Your Name<span style="color: red;">*</span></label>
-            <input type="text" name="name" id="name">
-
-            <label for="company">Company</label>
-            <input type="text" name="company" id="company">
-        </form>
+        <div class="dark-grey" id="contact-form">
+            <form method="post" class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <div class="form__item">
+                <label for="name">Your Name<span style="color: darkred;">*</span></label>
+                <input type="text" name="name" id="name">
+                </div>
+                <div class="form__item">
+                <label for="name">Company Name</label>
+                <input type="text" name="cname" id="cname">
+                </div>
+                <div class="form__item">
+                <label for="email">Your Email<span style="color: darkred;">*</span></label>
+                <input type="text" name="email" id="email">
+                </div>
+                <div class="form__item">
+                <label for="tel-num">Your Telephone Number<span style="color: darkred;">*</span></label>
+                <input type="text" name="tel-num" id="tel-num">
+                </div>
+                <div class="form__item">
+                <label for="subject" placeholder="All Articles">Subject<span style="color: darkred;">*</span></label>
+                <input type="text" name="subject" id="subject">
+                </div>
+                <div class="form__item">
+                <label for="message" placeholder="All Articles">Message<span style="color: darkred;">*</span></label>
+                <textarea type="text" name="message" id="message" rows="4" cols="50"></textarea>
+                </div>
+                <div class="form__item">               
+                <label class="consent-box">
+                    <input type="checkbox" name="consent" id="consent">
+                    <span class="checkmark"></span>
+                </label>  
+                <a href="#">Please tick this box if you wish to receive marketing information from us. Please see our <span>Privacy Policy</span> for more information on how we keep your data safe.</a>
+                </div>
+                <div class="form__item"> 
+                    <input type="submit" value="Send Enquiry" class="button">
+                    <p><span style="color: darkred;">*</span> Fields Required</p>
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 
