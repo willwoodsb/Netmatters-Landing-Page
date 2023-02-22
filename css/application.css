@@ -1450,7 +1450,7 @@ input[type=checkbox] {
 
 header {
   height: 170px;
-  z-index: 1001; }
+  z-index: 100000000; }
   @media screen and (min-width: 768px) {
     header {
       height: 117px; } }
@@ -1657,53 +1657,79 @@ header {
       color: #333645;
       padding: 50px 0 0; } }
 
+.map {
+  height: 250px;
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  z-index: 0; }
+
 .our-offices {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 30px;
-  padding-top: 75px; }
+  padding-top: 75px;
+  padding-bottom: 40px; }
   .our-offices .img-link {
     display: inline-block;
     background-color: #FFF; }
-  .our-offices__child--content {
-    outline: 1px solid #ccc;
-    border-radius: 15px 15px 0 0;
-    overflow: hidden; }
-  .our-offices__child--address {
-    display: block;
-    background-color: #FFF;
-    padding: 30px; }
-    .our-offices__child--address a:first-child {
-      color: #333645; }
-    .our-offices__child--address ul, .our-offices__child--address li {
-      color: #666;
-      font-size: 13px; }
-      .our-offices__child--address ul:last-child, .our-offices__child--address li:last-child {
-        margin-bottom: 15px; }
-    .our-offices__child--address a:hover {
-      text-decoration: underline; }
-    .our-offices__child--address a.office-tel-num {
-      color: #926fb1;
-      font-size: 24px;
-      font-weight: 700; }
-    .our-offices__child--address .button {
-      margin-top: 15px;
-      color: #FFF;
-      background-color: #926fb1;
-      padding: 13px 35px;
-      font-size: 14px;
-      border: none; }
-      .our-offices__child--address .button:hover {
-        text-decoration: none;
-        background-color: #79539a; }
+  .our-offices__child {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px; }
+    .our-offices__child--content {
+      outline: 1px solid #ccc;
+      border-radius: 20px 20px 0 0;
+      overflow: hidden; }
+    .our-offices__child--address {
+      display: block;
+      background-color: #FFF;
+      padding: 30px; }
+      .our-offices__child--address a:first-child {
+        color: #333645; }
+      .our-offices__child--address ul, .our-offices__child--address li {
+        color: #666;
+        font-size: 13px; }
+        .our-offices__child--address ul:last-child, .our-offices__child--address li:last-child {
+          margin-bottom: 15px; }
+      .our-offices__child--address a:hover {
+        text-decoration: underline; }
+      .our-offices__child--address .button {
+        margin-top: 15px;
+        color: #FFF;
+        background-color: #926fb1;
+        padding: 13px 35px;
+        font-size: 14px;
+        border: none; }
+        .our-offices__child--address .button:hover {
+          text-decoration: none;
+          background-color: #79539a; }
   @media screen and (min-width: 992px) {
     .our-offices {
       grid-template-columns: 1fr 1fr; } }
 
-.map {
-  height: 250px;
-  overflow: hidden;
-  border-radius: 0 0 15px 15px; }
+a.office-email-tel {
+  color: #926fb1;
+  font-size: 24px;
+  font-weight: 700; }
+
+#support p {
+  font-size: 16px;
+  color: #333645;
+  font-weight: 700;
+  margin-bottom: 25px; }
+#support a:hover {
+  text-decoration: underline; }
+#support .not-bold {
+  font-weight: 400; }
+#support #out-of-hours {
+  cursor: pointer; }
+  #support #out-of-hours__info {
+    display: none; }
+  #support #out-of-hours span:first-of-type:hover {
+    text-decoration: underline; }
+  #support #out-of-hours .icon {
+    font-size: 13px; }
+    #support #out-of-hours .icon::after {
+      content: ""; }
 
 @media screen and (max-width: 767px) {
   .is-collapsed-small-screen {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php echo $title; ?> | Cambridge & Norfolk | Netmatters</title>
+    <title><?php echo $title; ?> | Netmatters</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/cbfcb73618.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="plugins/hamburger/hamburgers.min.css">

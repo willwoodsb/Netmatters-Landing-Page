@@ -9,7 +9,8 @@ $locations["london"] = [
         "London",
         "EN9 1JH"],
     "tel-num" => "02045 397354",
-    "img_path" => "https://www.netmatters.co.uk/assets/images/offices/london.jpg"
+    "img_path" => "https://www.netmatters.co.uk/assets/images/offices/london.jpg",
+    "coordinates" => [51.681750, -0.002960]
 ];
 $locations["cambridge"] = [
     "location" => "Cambridge Office",
@@ -20,7 +21,8 @@ $locations["cambridge"] = [
         "Cambridge",
         "CB4 0WS"],
     "tel-num" => "01223 37 57 72",
-    "img_path" => "https://www.netmatters.co.uk/assets/images/offices/cambridge.jpg"
+    "img_path" => "https://www.netmatters.co.uk/assets/images/offices/cambridge.jpg",
+    "coordinates" => [42.377150, -71.125330]
 ];
 $locations["wymondham"] = [
     "location" => "Wymondham Office",
@@ -32,9 +34,10 @@ $locations["wymondham"] = [
         "NR18 0WZ"
     ],
     "tel-num" => "01603 70 40 20",
-    "img_path" => "https://www.netmatters.co.uk/assets/images/offices/wymondham.jpg"
+    "img_path" => "https://www.netmatters.co.uk/assets/images/offices/wymondham.jpg",
+    "coordinates" => [52.576240, 1.135470]
 ];
-$locations["great yarmouth"] = [
+$locations["yarmouth"] = [
     "location" => "Great Yarmouth Office",
     "address" => [
         "Suite F23",
@@ -44,5 +47,6 @@ $locations["great yarmouth"] = [
         "NR31 7RA"
     ],
     "tel-num" => "01493 60 32 04",
-    "img_path" => "https://www.netmatters.co.uk/assets/images/offices/yarmouth-2.jpg"
+    "img_path" => "https://www.netmatters.co.uk/assets/images/offices/yarmouth-2.jpg",
+    "coordinates" => [52.568250, 1.727150]
 ];

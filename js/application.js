@@ -210,16 +210,20 @@ $('.hamburger, #grey-out').click(function($e) {
 
 });
 
-
-var map = L.map('london').setView([51.505, -0.09], 13);
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    .openPopup();
+//------------------------
+// contact form
+//------------------------
+let oah = false;
+$('#out-of-hours').on('click', function() {
+  if (!oah) {
+    $('#out-of-hours__info').slideDown();
+    oah = true;
+  } else {
+    $('#out-of-hours__info').slideUp();
+    oah = false;
+  }
+  
+});
 
 
 

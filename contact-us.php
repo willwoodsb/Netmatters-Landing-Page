@@ -35,7 +35,7 @@ $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
                         </li>
                     <?php } ?>
                     </ul>
-                    <a href="#" class="office-tel-num"><?php echo $loc["tel-num"] ?></a><br>
+                    <a href="#" class="office-email-tel"><?php echo $loc["tel-num"] ?></a><br>
                     <input type="button" value="View More" class="button">
                 </div>
             </div>
@@ -49,6 +49,31 @@ $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
     </div>
 </section>
 
+<!-- Contact Form -->
+<section class="grey">
+    <div class="width">
+        <div id="support">
+            <p>Email us on:</p>
+            <p><a href="#" class="office-email-tel">sales@netmatters.com</a></p>
+            <p>Business Hours:</p>
+            <p>Monday - Friday 07:00 - 18:00</p>
+            <p id="out-of-hours"><span>Out of Hours IT Support</span><span class="icon"> </span></p>
+            <div id="out-of-hours__info" class="collapse">
+                <p class="not-bold">Netmatters IT are offering an Out of Hours service for Emergency and Critical tasks.</p>
+                <p>Monday - Friday 18:00 - 22:00 Saturday 08:00 - 16:00<br>Sunday 10:00 - 18:00</p>
+                <p class="not-bold">To log a critical task, you will need to call our main line number and select Option 2 to leave an Out of Hours  voicemail. A technician will contact you on the number provided within 45 minutes of your call.</p>
+            </div>
+        </div>
+
+        <form action="#" method="post">
+            <label for="name">Your Name<span style="color: red;">*</span></label>
+            <input type="text" name="name" id="name">
+
+            <label for="company">Company</label>
+            <input type="text" name="company" id="company">
+        </form>
+    </div>
+</section>
 
 <?php
 include('inc/footer.php');
