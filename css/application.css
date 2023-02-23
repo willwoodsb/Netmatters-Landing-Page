@@ -1723,10 +1723,43 @@ a.office-email-tel {
 .contact-form {
   padding-bottom: 50px; }
 
+#success {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 20px;
+  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 10000000; }
+  #success span::after {
+    content: "\ea0f"; }
+  #success span {
+    transform: translate(0, 2px);
+    font-size: 10px;
+    cursor: pointer;
+    padding: 5px 5px 0; }
+
+.submit-message {
+  color: #FFF;
+  background-color: #d64541;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+  margin-top: 10px; }
+
+.success {
+  background-color: #2ecc71; }
+
 #contact-form {
   border-radius: 10px; }
   #contact-form .form {
     padding: 30px; }
+    #contact-form .form__item {
+      width: 100%;
+      min-width: 0; }
     #contact-form .form input[type=submit] {
       background-color: #926fb1; }
       #contact-form .form input[type=submit]:hover {

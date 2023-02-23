@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $title = "Contact Us";
 $subtitle = "Our Offices";
 $maps = true;
@@ -6,9 +8,39 @@ $maps = true;
 include('inc/header.php');
 include('inc/satellite-title-view.php');
 include('inc/locations.php');
-include('inc/contact-form.php');
 
 $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
+if (isset($_SESSION['errors'])) {
+    if (!empty(implode("", $_SESSION['errors']))) {
+        $errors = $_SESSION['errors'];
+    } 
+    $_SESSION['errors'] = null;
+}
+
+$success = null;
+if (isset($_SESSION['success'])) {
+    if ($_SESSION['success']) {
+        $success = true;
+    } 
+    $_SESSION['success'] = null;
+}
+$values = [];
+if (isset($_SESSION["values"])) {
+    $values = $_SESSION["values"];
+    $_SESSION["values"] = null;
+}
+
+if (!$success) { ?>
+    <div class="submit-message" id="success">
+        <p>Your query could not be submitted. Please check that all the required fields were filled out correctly.</p>
+        <span class="icon"></span>
+    </div>
+<?php } else if ($success) { ?>
+    <div class="submit-message success" id="success">
+        <p>Your query has been submitted! Thanks for getting in touch.</p>
+        <span class="icon"></span>
+    </div>
+<?php }
 
 ?>
 
@@ -67,10 +99,16 @@ $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
         </div>
 
         <div class="dark-grey" id="contact-form">
-            <form method="post" class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <form method="post" class="form" action="inc/contact-form.php">
                 <div class="form__item">
                 <label for="name">Your Name<span style="color: darkred;">*</span></label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" value="<?php if (isset($values["name"])) echo $values["name"]; ?>">
+                <?php if (isset($errors["name"])) { 
+                    if (!empty($errors["name"])) {?>
+                    <div class="submit-message">
+                        <p><?php echo $errors["name"]; ?></p>
+                    </div>
+                <?php } }?>
                 </div>
                 <div class="form__item">
                 <label for="name">Company Name</label>
@@ -78,26 +116,50 @@ $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
                 </div>
                 <div class="form__item">
                 <label for="email">Your Email<span style="color: darkred;">*</span></label>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" value="<?php if (isset($values["email"])) echo $values["email"]; ?>">
+                <?php if (isset($errors["email"])) { 
+                    if (!empty($errors["email"])) {?>
+                    <div class="submit-message">
+                        <p><?php echo $errors["email"]; ?></p>
+                    </div>
+                <?php } }?>
                 </div>
                 <div class="form__item">
                 <label for="tel-num">Your Telephone Number<span style="color: darkred;">*</span></label>
-                <input type="text" name="tel-num" id="tel-num">
+                <input type="text" name="tel-num" id="tel-num" value="<?php if (isset($values["tel-num"])) echo $values["tel-num"]; ?>">
+                <?php if (isset($errors["tel-num"])) { 
+                    if (!empty($errors["tel-num"])) { ?>
+                    <div class="submit-message">
+                        <p><?php echo $errors["tel-num"]; ?></p>
+                    </div>
+                <?php } }?>
                 </div>
                 <div class="form__item">
                 <label for="subject" placeholder="All Articles">Subject<span style="color: darkred;">*</span></label>
-                <input type="text" name="subject" id="subject">
+                <input type="text" name="subject" id="subject" value="<?php if (isset($values["subject"])) echo $values["subject"]; ?>">
+                <?php if (isset($errors["subject"])) {
+                    if (!empty($errors["subject"])) {?>
+                    <div class="submit-message">
+                        <p><?php echo $errors["subject"]; ?></p>
+                    </div>
+                <?php }  }?>
                 </div>
                 <div class="form__item">
                 <label for="message" placeholder="All Articles">Message<span style="color: darkred;">*</span></label>
-                <textarea type="text" name="message" id="message" rows="4" cols="50"></textarea>
+                <textarea type="text" name="message" id="message" rows="4" cols="50"><?php if (isset($values["message"])) echo $values["message"]; ?></textarea>
+                <?php if (isset($errors["message"])) { 
+                    if (!empty($errors["message"])) {?>
+                    <div class="submit-message">
+                        <p><?php echo $errors["message"]; ?></p>
+                    </div>
+                <?php } }?>
                 </div>
                 <div class="form__item">               
                 <label class="consent-box">
                     <input type="checkbox" name="consent" id="consent">
                     <span class="checkmark"></span>
                 </label>  
-                <a href="#">Please tick this box if you wish to receive marketing information from us. Please see our <span>Privacy Policy</span> for more information on how we keep your data safe.</a>
+                <a href="!#">Please tick this box if you wish to receive marketing information from us. Please see our <span>Privacy Policy</span> for more information on how we keep your data safe.</a>
                 </div>
                 <div class="form__item"> 
                     <input type="submit" value="Send Enquiry" class="button">

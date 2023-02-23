@@ -3,10 +3,48 @@
     padding-bottom: 50px;
 }
 
+#success {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 20px;
+    display: none;
+    @include flex-row;
+    justify-content: space-between;
+    z-index: 10000000;
+    span::after {
+        content: "\ea0f";
+    }
+    span {
+        transform: translate(0, 2px);
+        font-size: 10px;
+        cursor: pointer;
+        padding: 5px 5px 0;
+    }
+}
+
+.submit-message {
+    color: $white;
+    background-color: $jasper;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.success {
+    background-color: $ufo-green;
+}
+
 #contact-form {
     border-radius: 10px;
     .form {
         padding: 30px;
+        &__item {
+            width: 100%;
+            min-width: 0;
+        }
         input[type=submit] {
             background-color: $purple-majesty;
             &:hover {

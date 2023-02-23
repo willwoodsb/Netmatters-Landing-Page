@@ -19,7 +19,15 @@ $(document).ready(function(){
       dots: false,
       autoWidth: true,
       margin: 50
-  });
+    });
+    setTimeout(function() {
+      $('#success').slideDown(200);
+    }, 1000);
+
+    setTimeout(function() {
+      $('#success').slideUp(200);
+    }, 8000);
+    
 });
 
 //initialize variables for sticky header
@@ -222,9 +230,17 @@ $('#out-of-hours').on('click', function() {
     $('#out-of-hours__info').slideUp();
     oah = false;
   }
-  
 });
 
+$('.submit-message .icon').on('click', function(e) {
+  $parent = $(e.target).parent();
+  $parent.slideUp(100);
+});
+
+$('#contact-form input, #contact-form textarea').on('change', function(e) {
+  $div = $(e.target).siblings('div:first');
+  $div.slideUp(100);
+});
 
 
 
