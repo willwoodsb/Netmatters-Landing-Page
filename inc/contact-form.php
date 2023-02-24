@@ -78,7 +78,7 @@ function add_contact($values) {
     include('connection.php');
     try {
         $results = $db->prepare("
-            INSERT INTO `emailList` (`name`, `cname`, `email`, `tel-num`, `subject`, `message`, `mconsent`) 
+            INSERT INTO `contact` (`name`, `cname`, `email`, `tel-num`, `subject`, `message`, `mconsent`) 
             VALUES (?, ?, ?, ?, ?, ?, ?);
         ");
         $results->bindParam(1, $values["name"], PDO::PARAM_STR);
