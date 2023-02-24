@@ -1723,6 +1723,15 @@ a.office-email-tel {
 .contact-form {
   padding-bottom: 50px; }
 
+.contact-grid {
+  display: grid;
+  grid-gap: 30px; }
+  @media screen and (min-width: 1260px) {
+    .contact-grid {
+      grid-template-columns: 2fr 1fr; }
+      .contact-grid__child:first-of-type {
+        order: 1; } }
+
 #success {
   position: fixed;
   top: 0;

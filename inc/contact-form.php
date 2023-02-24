@@ -3,7 +3,6 @@ session_start();
 
 
 // initialise variables
-$fnameErr = $emailErr = $lnameErr = $subErr = $telNumErr = $messErr = "";
 $values = $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,9 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
-    if (empty($values["cname"])) {
-        $values["cname"] = null;
+    if (isset($values["cname"])) {
+        if (empty($values["cname"])) {
+            $values["cname"] = null;
+        }
     }
+    
     if (isset($values["consent"])) {
         if ($values["consent"] == "on") {
             $values["consent"] = "yes";
@@ -37,31 +39,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $values["consent"] = "no";
     }
-    if (!preg_match("/^(\+\d{12}|\d{11}|\+\d{2}-\d{3}-\d{7})$/", $values["tel-num"]) && empty($errors["tel-num"])) {
-        $errors["tel-num"] = "Please enter a valid phone number";
+    if (isset($values["tel-num"])) {
+        if (!preg_match("/^(\+\d{12}|\d{11}|\+\d{2}-\d{3}-\d{7})$/", $values["tel-num"]) && empty($errors["tel-num"])) {
+            $errors["tel-num"] = "Please enter a valid phone number";
+        }
     }
+    
     if (!filter_var($values["email"], FILTER_VALIDATE_EMAIL) && empty($errors["email"])) {
         $errors["email"] = "Please enter a valid email";
     }
-    $_SESSION['errors'] = $errors;
-    // insert values into table 
-    if (empty(implode('', $errors))) {
-        if(add_entry($values)) {
-            $_SESSION['success'] = true;
+
+    if (sizeof($values) == 3) {
+        $_SESSION['email-errors'] = $errors;
+        // insert values into table 
+        if (empty(implode('', $errors))) {
+            if(add_email($values)) {
+                $_SESSION['success'] = true;
+            } 
+        } else {
+            $_SESSION['success'] = false;
+            $_SESSION['email-values'] = $values;
         } 
     } else {
-        $_SESSION['success'] = false;
-        $_SESSION['values'] = $values;
+        $_SESSION['contact-errors'] = $errors;
+        // insert values into table 
+        if (empty(implode('', $errors))) {
+            if(add_contact($values)) {
+                $_SESSION['success'] = true;
+            } 
+        } else {
+            $_SESSION['success'] = false;
+            $_SESSION['contact-values'] = $values;
+        }   
     }
 }
+header('Location:'.$_SERVER['HTTP_REFERER']);
+exit;
 
-header('Location: ../contact-us.php#contact-form');
 
-function add_entry($values) {
+
+function add_contact($values) {
     include('connection.php');
     try {
         $results = $db->prepare("
-            INSERT INTO `contact` (`name`, `cname`, `email`, `tel-num`, `subject`, `message`, `mconsent`) 
+            INSERT INTO `emailList` (`name`, `cname`, `email`, `tel-num`, `subject`, `message`, `mconsent`) 
             VALUES (?, ?, ?, ?, ?, ?, ?);
         ");
         $results->bindParam(1, $values["name"], PDO::PARAM_STR);
@@ -80,6 +101,24 @@ function add_entry($values) {
     return true;
 }
 
+function add_email($values) {
+    include('connection.php');
+    try {
+        $results = $db->prepare("
+            INSERT INTO `emaillist` (`name`, `email`, `mconsent`) 
+            VALUES (?, ?, ?);
+        ");
+        $results->bindParam(1, $values["name"], PDO::PARAM_STR);
+        $results->bindParam(2, $values["email"], PDO::PARAM_STR);
+        $results->bindParam(3, $values["consent"], PDO::PARAM_STR);
+
+        $results->execute();
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        return false;
+    }
+    return true;
+}
 
 
 

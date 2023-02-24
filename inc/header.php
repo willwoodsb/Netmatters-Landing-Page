@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,10 +17,45 @@
         crossorigin=""/>
     <?php } ?>
     <link rel="icon" href="img/net_icon.webp" type="image/x-icon">
+
+    <?php 
+    if (isset($_SESSION['email-errors'])) {
+        if (!empty(implode("", $_SESSION['email-errors']))) {
+            $emailErrors = $_SESSION['email-errors'];
+        } 
+        $_SESSION['email-errors'] = null;
+    }
+    $success = null;
+    if (isset($_SESSION['success'])) {
+        if ($_SESSION['success']) {
+            $success = true;
+        } else {
+            $success = false;
+        }
+        $_SESSION['success'] = null;
+    }
+    $emailValues = [];
+    if (isset($_SESSION["email-values"])) {
+        $emailValues = $_SESSION["email-values"];
+        $_SESSION["email-values"] = null;
+    }
+    
+    ?>
     
   </head>
 
   <body>
+    <?php if ($success === false) { ?>
+      <div class="submit-message" id="success">
+          <p>Your query could not be submitted. Please check that all the required fields were filled out correctly.</p>
+          <span class="icon"></span>
+      </div>
+    <?php } else if ($success) { ?>
+        <div class="submit-message success" id="success">
+            <p>Your query has been submitted! Thanks for getting in touch.</p>
+            <span class="icon"></span>
+        </div>
+    <?php } ?>
     <!-- hamburger menu -->
     <section id="hamburger-menu">
       <div class="side-nav">

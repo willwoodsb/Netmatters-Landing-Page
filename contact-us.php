@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $title = "Contact Us";
 $subtitle = "Our Offices";
@@ -10,37 +9,18 @@ include('inc/satellite-title-view.php');
 include('inc/locations.php');
 
 $subtitle = ""; //unset to avoid affecting the !empty conditional on other pages
-if (isset($_SESSION['errors'])) {
-    if (!empty(implode("", $_SESSION['errors']))) {
-        $errors = $_SESSION['errors'];
+if (isset($_SESSION['contact-errors'])) {
+    if (!empty(implode("", $_SESSION['contact-errors']))) {
+        $contactErrors = $_SESSION['contact-errors'];
     } 
-    $_SESSION['errors'] = null;
+    $_SESSION['contact-errors'] = null;
 }
 
-$success = null;
-if (isset($_SESSION['success'])) {
-    if ($_SESSION['success']) {
-        $success = true;
-    } 
-    $_SESSION['success'] = null;
+$contactValues = [];
+if (isset($_SESSION["contact-values"])) {
+    $contactValues = $_SESSION["contact-values"];
+    $_SESSION["contact-values"] = null;
 }
-$values = [];
-if (isset($_SESSION["values"])) {
-    $values = $_SESSION["values"];
-    $_SESSION["values"] = null;
-}
-
-if (!$success) { ?>
-    <div class="submit-message" id="success">
-        <p>Your query could not be submitted. Please check that all the required fields were filled out correctly.</p>
-        <span class="icon"></span>
-    </div>
-<?php } else if ($success) { ?>
-    <div class="submit-message success" id="success">
-        <p>Your query has been submitted! Thanks for getting in touch.</p>
-        <span class="icon"></span>
-    </div>
-<?php }
 
 ?>
 
@@ -84,8 +64,8 @@ if (!$success) { ?>
 
 <!-- Contact Form -->
 <section class="grey contact-form">
-    <div class="width">
-        <div id="support">
+    <div class="width contact-grid">
+        <div id="support" class="contact-grid__child">
             <p>Email us on:</p>
             <p><a href="#" class="office-email-tel">sales@netmatters.com</a></p>
             <p>Business Hours:</p>
@@ -98,15 +78,15 @@ if (!$success) { ?>
             </div>
         </div>
 
-        <div class="dark-grey" id="contact-form">
+        <div class="dark-grey contact-grid__child" id="contact-form">
             <form method="post" class="form" action="inc/contact-form.php">
                 <div class="form__item">
                 <label for="name">Your Name<span style="color: darkred;">*</span></label>
-                <input type="text" name="name" id="name" value="<?php if (isset($values["name"])) echo $values["name"]; ?>">
-                <?php if (isset($errors["name"])) { 
-                    if (!empty($errors["name"])) {?>
+                <input type="text" name="name" id="name" value="<?php if (isset($contactValues["name"])) echo $contactValues["name"]; ?>">
+                <?php if (isset($contactErrors["name"])) { 
+                    if (!empty($contactErrors["name"])) {?>
                     <div class="submit-message">
-                        <p><?php echo $errors["name"]; ?></p>
+                        <p><?php echo $contactErrors["name"]; ?></p>
                     </div>
                 <?php } }?>
                 </div>
@@ -116,41 +96,41 @@ if (!$success) { ?>
                 </div>
                 <div class="form__item">
                 <label for="email">Your Email<span style="color: darkred;">*</span></label>
-                <input type="text" name="email" id="email" value="<?php if (isset($values["email"])) echo $values["email"]; ?>">
-                <?php if (isset($errors["email"])) { 
-                    if (!empty($errors["email"])) {?>
+                <input type="text" name="email" id="email" value="<?php if (isset($contactValues["email"])) echo $contactValues["email"]; ?>">
+                <?php if (isset($contactErrors["email"])) { 
+                    if (!empty($contactErrors["email"])) {?>
                     <div class="submit-message">
-                        <p><?php echo $errors["email"]; ?></p>
+                        <p><?php echo $contactErrors["email"]; ?></p>
                     </div>
                 <?php } }?>
                 </div>
                 <div class="form__item">
                 <label for="tel-num">Your Telephone Number<span style="color: darkred;">*</span></label>
-                <input type="text" name="tel-num" id="tel-num" value="<?php if (isset($values["tel-num"])) echo $values["tel-num"]; ?>">
-                <?php if (isset($errors["tel-num"])) { 
-                    if (!empty($errors["tel-num"])) { ?>
+                <input type="text" name="tel-num" id="tel-num" value="<?php if (isset($contactValues["tel-num"])) echo $contactValues["tel-num"]; ?>">
+                <?php if (isset($contactErrors["tel-num"])) { 
+                    if (!empty($contactErrors["tel-num"])) { ?>
                     <div class="submit-message">
-                        <p><?php echo $errors["tel-num"]; ?></p>
+                        <p><?php echo $contactErrors["tel-num"]; ?></p>
                     </div>
                 <?php } }?>
                 </div>
                 <div class="form__item">
                 <label for="subject" placeholder="All Articles">Subject<span style="color: darkred;">*</span></label>
-                <input type="text" name="subject" id="subject" value="<?php if (isset($values["subject"])) echo $values["subject"]; ?>">
-                <?php if (isset($errors["subject"])) {
-                    if (!empty($errors["subject"])) {?>
+                <input type="text" name="subject" id="subject" value="<?php if (isset($contactValues["subject"])) echo $contactValues["subject"]; ?>">
+                <?php if (isset($contactErrors["subject"])) {
+                    if (!empty($contactErrors["subject"])) {?>
                     <div class="submit-message">
-                        <p><?php echo $errors["subject"]; ?></p>
+                        <p><?php echo $contactErrors["subject"]; ?></p>
                     </div>
                 <?php }  }?>
                 </div>
                 <div class="form__item">
                 <label for="message" placeholder="All Articles">Message<span style="color: darkred;">*</span></label>
-                <textarea type="text" name="message" id="message" rows="4" cols="50"><?php if (isset($values["message"])) echo $values["message"]; ?></textarea>
-                <?php if (isset($errors["message"])) { 
-                    if (!empty($errors["message"])) {?>
+                <textarea type="text" name="message" id="message" rows="4" cols="50"><?php if (isset($contactValues["message"])) echo $contactValues["message"]; ?></textarea>
+                <?php if (isset($contactErrors["message"])) { 
+                    if (!empty($contactErrors["message"])) {?>
                     <div class="submit-message">
-                        <p><?php echo $errors["message"]; ?></p>
+                        <p><?php echo $contactErrors["message"]; ?></p>
                     </div>
                 <?php } }?>
                 </div>

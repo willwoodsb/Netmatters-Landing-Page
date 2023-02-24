@@ -1,16 +1,28 @@
-    
-    <!-- Email Form -->
+
+  <!-- Email Form -->
   <section class="dark-grey" id="email-form">
     <div class="width">
       <h2 id="form-title">Email Newletter Sign-Up</h2>
-      <form method="post" class="form">
+      <form method="post" class="form" action="inc/contact-form.php">
         <div class="form__item">
           <label for="name">Your Name<span style="color: darkred;">*</span></label>
-          <input type="text" name="name" id="name-list">
+          <input type="text" name="name" id="name-list" value="<?php if (isset($emailValues["name"])) echo $emailValues["name"]; ?>">
+          <?php if (isset($emailErrors["name"])) { 
+              if (!empty($emailErrors["name"])) { ?>
+              <div class="submit-message">
+                  <p><?php echo $emailErrors["name"]; ?></p>
+              </div>
+          <?php } }?>
         </div>
         <div class="form__item">
           <label for="email">Your Email<span style="color: darkred;">*</span></label>
-          <input type="text" name="email" id="email-list">
+          <input type="text" name="email" id="email-list" value="<?php if (isset($emailValues["email"])) echo $emailValues["email"]; ?>">
+          <?php if (isset($emailErrors["email"])) { 
+              if (!empty($emailErrors["email"])) { ?>
+              <div class="submit-message">
+                  <p><?php echo $emailErrors["email"]; ?></p>
+              </div>
+          <?php } }?>
         </div>
         <div class="form__item">               
           <label class="consent-box">

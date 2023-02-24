@@ -3,6 +3,17 @@
     padding-bottom: 50px;
 }
 
+.contact-grid {
+    display: grid;
+    grid-gap: 30px;
+    @include mq(xx-large) {
+        grid-template-columns: 2fr 1fr;
+        &__child:first-of-type {
+            order: 1;
+        }
+    }
+}
+
 #success {
     position: fixed;
     top: 0;
