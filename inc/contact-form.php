@@ -53,9 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email-errors'] = $errors;
         // insert values into table 
         if (empty(implode('', $errors))) {
-            if(add_email($values)) {
-                $_SESSION['success'] = true;
-            } 
+            add_email($values);
         } else {
             $_SESSION['success'] = false;
             $_SESSION['email-values'] = $values;
@@ -64,9 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['contact-errors'] = $errors;
         // insert values into table 
         if (empty(implode('', $errors))) {
-            if(add_contact($values)) {
-                $_SESSION['success'] = true;
-            } 
+            add_contact($values);
         } else {
             $_SESSION['success'] = false;
             $_SESSION['contact-values'] = $values;
@@ -94,11 +90,11 @@ function add_contact($values) {
         $results->bindParam(7, $values["consent"], PDO::PARAM_STR);
 
         $results->execute();
+        $_SESSION['success'] = true;
     } catch (Exception $e) {
         echo $e->getMessage();
-        return false;
+        $_SESSION['success'] = false;
     }
-    return true;
 }
 
 function add_email($values) {
@@ -113,11 +109,11 @@ function add_email($values) {
         $results->bindParam(3, $values["consent"], PDO::PARAM_STR);
 
         $results->execute();
+        $_SESSION['success'] = true;
     } catch (Exception $e) {
         echo $e->getMessage();
-        return false;
+        $_SESSION['success'] = false;
     }
-    return true;
 }
 
 
