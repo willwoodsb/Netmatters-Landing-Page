@@ -3,7 +3,7 @@
 $password = "j3J8mbYeeF2FkqR";
 $username = "wwoodsba_wwoodsballard";
 $database = "wwoodsba_netmatters";
-$servername = "localhost";
+$servername = "127.0.0.1";
 
 
 try {
