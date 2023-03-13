@@ -9,7 +9,7 @@ $servername = "127.0.0.1";
 try {
     $db = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
 } catch (Exception $e) {
-    echo "error connecting to database";
-    echo $e->getMessage();
+    $_SESSION['no-connect'] = true;
+    header('Location:'.$_SERVER['HTTP_REFERER']);
     exit;
 }

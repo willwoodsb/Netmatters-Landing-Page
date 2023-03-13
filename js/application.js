@@ -242,5 +242,20 @@ $('#contact-form input, #contact-form textarea').on('change', function(e) {
   $div.slideUp(100);
 });
 
+//--------------------------------------------------------
+// Client Side Validation --------------------------------
+//--------------------------------------------------------
+
+const $inputToCheck = $('input[type=text], input[type=email], textarea');
+
+$inputToCheck.on('invalid', function(e) {
+  e.preventDefault();
+  $(e.target).css('border', '1px solid #d64541').css('box-shadow', 'none');
+});
+
+$inputToCheck.on('change', function(e) {
+  $(e.target).css('border', '').css('box-shadow', '');;
+});
+
 
 

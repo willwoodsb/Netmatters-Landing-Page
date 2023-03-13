@@ -82,7 +82,12 @@ if (isset($_SESSION["contact-values"])) {
             <form method="post" class="form" action="inc/contact-form.php">
                 <div class="form__item">
                 <label for="name">Your Name<span style="color: darkred;">*</span></label>
-                <input type="text" name="name" id="name" value="<?php if (isset($contactValues["name"])) echo $contactValues["name"]; ?>">
+                <input type="text" 
+                    name="name" 
+                    id="name" 
+                    value="<?php if (isset($contactValues["name"])) echo $contactValues["name"]; ?>"
+                    required
+                >
                 <?php if (isset($contactErrors["name"])) { 
                     if (!empty($contactErrors["name"])) {?>
                     <div class="submit-message">
@@ -96,7 +101,12 @@ if (isset($_SESSION["contact-values"])) {
                 </div>
                 <div class="form__item">
                 <label for="email">Your Email<span style="color: darkred;">*</span></label>
-                <input type="text" name="email" id="email" value="<?php if (isset($contactValues["email"])) echo $contactValues["email"]; ?>">
+                <input type="text" 
+                    name="email" 
+                    id="email" 
+                    value="<?php if (isset($contactValues["email"])) echo $contactValues["email"]; ?>"
+                    required
+                >
                 <?php if (isset($contactErrors["email"])) { 
                     if (!empty($contactErrors["email"])) {?>
                     <div class="submit-message">
@@ -106,7 +116,13 @@ if (isset($_SESSION["contact-values"])) {
                 </div>
                 <div class="form__item">
                 <label for="tel-num">Your Telephone Number<span style="color: darkred;">*</span></label>
-                <input type="text" name="tel-num" id="tel-num" value="<?php if (isset($contactValues["tel-num"])) echo $contactValues["tel-num"]; ?>">
+                <input type="text" 
+                    name="tel-num" 
+                    id="tel-num" 
+                    value="<?php if (isset($contactValues["tel-num"])) echo $contactValues["tel-num"]; ?>"
+                    required 
+                    pattern="^(((\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\+44\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\+44\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?\#(\d{4}|\d{3}))?$"
+                >
                 <?php if (isset($contactErrors["tel-num"])) { 
                     if (!empty($contactErrors["tel-num"])) { ?>
                     <div class="submit-message">
@@ -116,7 +132,12 @@ if (isset($_SESSION["contact-values"])) {
                 </div>
                 <div class="form__item">
                 <label for="subject" placeholder="All Articles">Subject<span style="color: darkred;">*</span></label>
-                <input type="text" name="subject" id="subject" value="<?php if (isset($contactValues["subject"])) echo $contactValues["subject"]; ?>">
+                <input type="text" 
+                    name="subject" 
+                    id="subject" 
+                    value="<?php if (isset($contactValues["subject"])) echo $contactValues["subject"]; ?>"
+                    required
+                >
                 <?php if (isset($contactErrors["subject"])) {
                     if (!empty($contactErrors["subject"])) {?>
                     <div class="submit-message">
@@ -126,7 +147,13 @@ if (isset($_SESSION["contact-values"])) {
                 </div>
                 <div class="form__item">
                 <label for="message" placeholder="All Articles">Message<span style="color: darkred;">*</span></label>
-                <textarea type="text" name="message" id="message" rows="4" cols="50"><?php if (isset($contactValues["message"])) echo $contactValues["message"]; ?></textarea>
+                <textarea type="text" 
+                    name="message" 
+                    id="message" 
+                    rows="4" 
+                    cols="50"
+                    required
+                ><?php if (isset($contactValues["message"])) echo $contactValues["message"]; ?></textarea>
                 <?php if (isset($contactErrors["message"])) { 
                     if (!empty($contactErrors["message"])) {?>
                     <div class="submit-message">

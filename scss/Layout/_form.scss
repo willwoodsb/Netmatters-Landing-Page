@@ -30,12 +30,15 @@
             }
         }
     }
-    input[type=text] {
-        height: 47px;
-        padding: 5px 15px;
+    input:not([type=submit]), textarea {
+        border-radius: 2px;
         border: none;
         box-shadow: 0 0 1px $granite;
         @include blue-focus;
+    }
+    input[type=text], input[type=email] {
+        height: 47px;
+        padding: 5px 15px;
     }
     input[type=submit] {
         margin-right: auto;

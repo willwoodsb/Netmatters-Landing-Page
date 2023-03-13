@@ -92,7 +92,6 @@ function add_contact($values) {
         $results->execute();
         $_SESSION['success'] = true;
     } catch (Exception $e) {
-        echo $e->getMessage();
         $_SESSION['success'] = false;
     }
 }
@@ -111,7 +110,6 @@ function add_email($values) {
         $results->execute();
         $_SESSION['success'] = true;
     } catch (Exception $e) {
-        echo $e->getMessage();
         $_SESSION['success'] = false;
     }
 }

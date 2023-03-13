@@ -26,6 +26,7 @@ session_start();
         $_SESSION['email-errors'] = null;
     }
     $success = null;
+    $noConnect = null;
     if (isset($_SESSION['success'])) {
         if ($_SESSION['success']) {
             $success = true;
@@ -34,6 +35,12 @@ session_start();
         }
         $_SESSION['success'] = null;
     }
+    if (isset($_SESSION['no-connect'])) {
+      if ($_SESSION['no-connect']) {
+          $noConnect = true;
+      }
+      $_SESSION['no-connect'] = null;
+  }
     $emailValues = [];
     if (isset($_SESSION["email-values"])) {
         $emailValues = $_SESSION["email-values"];
@@ -55,6 +62,12 @@ session_start();
             <p>Your query has been submitted! Thanks for getting in touch.</p>
             <span class="icon"></span>
         </div>
+    <?php } ?>
+    <?php if ($noConnect) { ?>
+      <div class="submit-message" id="success">
+          <p>Sorry, we were unable to submit your request due to a connection error, please try again later.</p>
+          <span class="icon"></span>
+      </div>
     <?php } ?>
     <!-- hamburger menu -->
     <section id="hamburger-menu">

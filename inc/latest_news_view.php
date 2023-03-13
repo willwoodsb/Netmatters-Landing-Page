@@ -30,8 +30,8 @@ include 'latest_news_retrieve.php';
     unset($article);
     ?>
 
-    <div class="head latest-news__head" style="justify-content: center;">
-      <a href="#" class="head--item is-collapsed-large-screen">View All<span class="icon"></span></a>
+    <div class="head latest-news__head is-collapsed-large-screen" style="justify-content: center;">
+      <a href="#" class="head--item">View All<span class="icon"></span></a>
     </div>
     
   </section>

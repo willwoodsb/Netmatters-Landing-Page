@@ -1294,14 +1294,16 @@ hr.line {
     margin-left: 15px; }
     .form__item a span {
       text-decoration: underline; }
-  .form input[type=text] {
-    height: 47px;
-    padding: 5px 15px;
+  .form input:not([type=submit]), .form textarea {
+    border-radius: 2px;
     border: none;
     box-shadow: 0 0 1px #666; }
-    .form input[type=text]:focus {
+    .form input:not([type=submit]):focus, .form textarea:focus {
       outline: #4183D7;
       box-shadow: 0 0 10px #4183D7; }
+  .form input[type=text], .form input[type=email] {
+    height: 47px;
+    padding: 5px 15px; }
   .form input[type=submit] {
     margin-right: auto;
     border: none;

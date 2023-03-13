@@ -6,7 +6,12 @@
       <form method="post" class="form" action="inc/contact-form.php">
         <div class="form__item">
           <label for="name">Your Name<span style="color: darkred;">*</span></label>
-          <input type="text" name="name" id="name-list" value="<?php if (isset($emailValues["name"])) echo $emailValues["name"]; ?>">
+          <input type="text" 
+            name="name" 
+            id="name-list" 
+            value="<?php if (isset($emailValues["name"])) echo $emailValues["name"]; ?>"
+            required
+          >
           <?php if (isset($emailErrors["name"])) { 
               if (!empty($emailErrors["name"])) { ?>
               <div class="submit-message">
@@ -16,7 +21,12 @@
         </div>
         <div class="form__item">
           <label for="email">Your Email<span style="color: darkred;">*</span></label>
-          <input type="text" name="email" id="email-list" value="<?php if (isset($emailValues["email"])) echo $emailValues["email"]; ?>">
+          <input type="email" 
+            name="email" 
+            id="email-list" 
+            value="<?php if (isset($emailValues["email"])) echo $emailValues["email"]; ?>"
+            required
+          >
           <?php if (isset($emailErrors["email"])) { 
               if (!empty($emailErrors["email"])) { ?>
               <div class="submit-message">
